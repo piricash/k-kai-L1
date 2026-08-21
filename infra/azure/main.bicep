@@ -10,6 +10,9 @@ param apiSiteName string
 @description('Globally unique Azure SQL logical-server name.')
 param sqlServerName string
 
+@description('Globally unique Azure Static Web Apps name for the React client.')
+param staticWebAppName string
+
 @description('Azure SQL database name.')
 param sqlDatabaseName string = 'kakariki-kai'
 
@@ -27,9 +30,6 @@ param kindeAuthority string
 
 @description('The Kinde API audience registered for the Kākāriki Kai API.')
 param kindeAudience string
-
-@description('The exact React application origin allowed to call this API.')
-param allowedOrigin string
 
 resource plan 'Microsoft.Web/serverfarms@2024-04-01' = {
   name: 'asp-kakariki-kai-${environmentName}'
@@ -67,8 +67,18 @@ resource apiAppSettings 'Microsoft.Web/sites/config@2024-04-01' = {
     'ConnectionStrings__KakarikiKai': 'Server=tcp:${sqlServer.name}.database.windows.net,1433;Initial Catalog=${sqlDatabaseName};Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;'
     'Kinde__Authority': kindeAuthority
     'Kinde__Audience': kindeAudience
-    'Cors__AllowedOrigins__0': allowedOrigin
+    'Cors__AllowedOrigins__0': 'https://${staticWebApp.properties.defaultHostname}'
   }
+}
+
+resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
+  name: staticWebAppName
+  location: location
+  sku: {
+    name: 'Free'
+    tier: 'Free'
+  }
+  properties: {}
 }
 
 resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
@@ -106,3 +116,4 @@ resource database 'Microsoft.Sql/servers/databases@2023-08-01-preview' = {
 output apiHostName string = api.properties.defaultHostName
 output apiManagedIdentityPrincipalId string = api.identity.principalId
 output sqlFullyQualifiedDomainName string = sqlServer.properties.fullyQualifiedDomainName
+output staticWebAppHostName string = staticWebApp.properties.defaultHostname

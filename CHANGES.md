@@ -20,3 +20,4 @@
 - Generated the typed React API transport from the server OpenAPI contract and replaced the duplicate hand-maintained menu transport types.
 - Extended continuous integration to validate the .NET solution and added the ordered Azure/Kinde activation guide.
 - Published the backend-ready front-end revision and recorded the live release boundary, test evidence and rollback posture.
+- Replaced the Vercel production-hosting path with Azure Static Web Apps infrastructure, GitHub deployment workflow, static routing policy, and Azure-only activation guide.
