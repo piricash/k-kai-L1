@@ -22,3 +22,4 @@
 - Published the backend-ready front-end revision and recorded the live release boundary, test evidence and rollback posture.
 - Replaced the Vercel production-hosting path with Azure Static Web Apps infrastructure, GitHub deployment workflow, static routing policy, and Azure-only activation guide.
 - Corrected Azure Static Web Apps provisioning to use a separately configurable supported region while retaining Australia East for the API and Azure SQL database.
+- Replaced the fragile Azure SQL external-UPN deployment input with a scripted Entra display-name lookup, added the SQL server managed identity, and set the database location explicitly.

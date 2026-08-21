@@ -16,3 +16,7 @@
 - [x] KKAI-14: Deliver the copy-paste Azure, Kinde, and Vercel activation guide requested for manual completion.
 - [x] KKAI-15: Replace the Vercel-specific guide and artifacts with an Azure-only Static Web Apps deployment path.
 - [x] KKAI-16: Correct the Azure Static Web Apps region independently of the Australia East API and database region.
+- [ ] KKAI-17: Reconcile the user’s failed Azure deployment with the corrected region-aware template and complete the remaining deployable setup.
+- [x] KKAI-18: Provide the minimum Azure permissions, identity prerequisites, and existing-resource-group setup checklist for the user’s manual completion.
+- [ ] KKAI-19: Recover the failed Azure SQL Entra administrator configuration with a verified login value and rerun the idempotent deployment.
+- [ ] KKAI-20: Replace fragile Cloud Shell parameter pasting with a scripted deployment that uses the verified Azure SQL Entra display name.

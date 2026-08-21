@@ -25,7 +25,7 @@ param sqlEntraAdministratorObjectId string
 @description('Microsoft Entra tenant ID that owns the Azure SQL administrator.')
 param sqlEntraTenantId string
 
-@description('UPN or display name for the Azure SQL Microsoft Entra administrator.')
+@description('Microsoft Entra display name for the Azure SQL administrator. Use the exact displayName returned by az ad signed-in-user show.')
 param sqlEntraAdministratorLogin string
 
 @description('Kinde issuer URL, for example https://your-business.kinde.com.')
@@ -87,6 +87,9 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
 resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
   name: sqlServerName
   location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
   properties: {
     publicNetworkAccess: 'Enabled'
     minimalTlsVersion: '1.2'
@@ -107,6 +110,7 @@ resource sqlEntraAdmin 'Microsoft.Sql/servers/administrators@2023-08-01-preview'
 resource database 'Microsoft.Sql/servers/databases@2023-08-01-preview' = {
   parent: sqlServer
   name: sqlDatabaseName
+  location: location
   sku: {
     name: 'Basic'
     tier: 'Basic'
@@ -119,4 +123,5 @@ resource database 'Microsoft.Sql/servers/databases@2023-08-01-preview' = {
 output apiHostName string = api.properties.defaultHostName
 output apiManagedIdentityPrincipalId string = api.identity.principalId
 output sqlFullyQualifiedDomainName string = sqlServer.properties.fullyQualifiedDomainName
+output sqlServerIdentityPrincipalId string = sqlServer.identity.principalId
 output staticWebAppHostName string = staticWebApp.properties.defaultHostname
