@@ -47,8 +47,8 @@ type Role = "kaimahi" | "chef";
 const testUser = { id: "user-aroh", name: "Aroha Ngata" };
 
 const mealImages: Record<string, string> = {
-  "meal-kumara-curry": "/manus-storage/kakariki-kai-meal-curry_9c2f637b.jpg",
-  "meal-roast-salad": "/manus-storage/kakariki-kai-meal-salad_366509d8.jpg",
+  "meal-kumara-curry": "https://files.manuscdn.com/user_upload_by_module/session_file/121020228/wjXFaDeybxVyYWFf.jpg",
+  "meal-roast-salad": "https://files.manuscdn.com/user_upload_by_module/session_file/121020228/riuxLDSRqlJOFxof.jpg",
 };
 
 function dayNumber(date: string): string {
@@ -268,7 +268,7 @@ export default function Home() {
     <div className="app-shell">
       <aside className={`side-rail ${mobileOpen ? "side-rail--open" : ""}`} aria-label="Kākāriki Kai navigation">
         <div className="rail-brand">
-          <img src="/manus-storage/kakariki-kai-mark_9a1b86b9.png" alt="" className="brand-mark" />
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/121020228/vlQXLFaMtbQipNRK.png" alt="" className="brand-mark" />
           <div>
             <p className="brand-kicker">KĀKĀRIKI HOUSE</p>
             <p className="brand-name">Kai</p>
@@ -436,7 +436,7 @@ function BookingWorkspace(props: {
             <div className="booking-ledger__heading"><div><p className="eyebrow">Booking window</p><h2>Next week at a glance</h2></div><p className="deadline-note">Book by <strong>10am Monday</strong></p></div>
             <div className="ledger-days">{props.menuDays.map((day) => { const meal = getMeal(props.state, day); const booked = props.currentBookings.some((booking) => booking.menuDayId === day.id); return <div className="ledger-day" key={day.id}><div className="ledger-day__date"><span>{dayShort(day.date)}</span><strong>{dayNumber(day.date)}</strong></div><div><strong>{meal?.name ?? "No kai scheduled"}</strong><span>{formatPrice(day.priceCents)}</span></div><em>{booked ? "Booked" : "Open"}</em></div>; })}</div>
           </div>
-          <img src="/manus-storage/kakariki-kai-header_9cc03b28.jpg" alt="A bowl of seasonal kai on a table" />
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/121020228/PywvfuAusgDnAaUO.jpg" alt="A bowl of seasonal kai on a table" />
         </section>
         <section className="section-heading"><div><p className="eyebrow">Menu</p><h2>Next week’s kai</h2></div><p>{bookedCount ? `${bookedCount} day${bookedCount === 1 ? "" : "s"} already booked` : "Nothing booked yet"}</p></section>
         <div className="meal-list">
