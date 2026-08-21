@@ -28,3 +28,4 @@
 - Added the first authoritative EF Core schema migration and OIDC-driven GitHub workflows for controlled database migration, .NET API deployment, and Azure Static Web Apps deployment-token retrieval.
 - Updated the initial production migration to adopt pre-existing Azure SQL tables additively and preserve all existing data while establishing EF Core history.
 - Consolidated duplicate initial migrations into the original EF Core baseline so only one non-destructive migration is discovered by deployment tooling.
+- Corrected the Azure Static Web Apps workflow order so pnpm is available before its Node dependency-cache step.
