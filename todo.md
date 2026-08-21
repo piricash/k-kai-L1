@@ -8,4 +8,4 @@
 - [x] KKAI-06: Establish the .NET 10 Clean Architecture solution, Azure SQL model and migration path for meals, menu days and bookings.
 - [x] KKAI-07: Implement verified Kinde identity mapping, tenant resolution and server-enforced KaiChef permissions.
 - [x] KKAI-08: Add the first typed bearer-token API client and prove the server’s allowed and denied permission/tenant paths.
-- [ ] KKAI-09: Deploy the backend-ready release and complete the Azure/Kinde environment handoff.
+- [x] KKAI-09: Deploy the backend-ready front-end release, push the WMS slice, and complete the Azure/Kinde environment handoff; provider activation awaits subscription and tenant access.

@@ -19,3 +19,4 @@
 - Added Kinde bearer-security metadata to the OpenAPI document and an Orval client-generation contract path.
 - Generated the typed React API transport from the server OpenAPI contract and replaced the duplicate hand-maintained menu transport types.
 - Extended continuous integration to validate the .NET solution and added the ordered Azure/Kinde activation guide.
+- Published the backend-ready front-end revision and recorded the live release boundary, test evidence and rollback posture.
