@@ -9,3 +9,5 @@
 - Implemented the deployable Priority 1 front-end workflows for weekly booking, KaiChef meal/menu management, daily service totals, A4 pickup sheets and reviewed email simulation.
 - Added focused POC tests, browser smoke-test notes and a GitHub Actions validation workflow for test, type-check and build gates.
 - Configured the static Vite output and generated visual assets for the linked Vercel deployment.
+- Deployed the corrected MVP to the linked production Vercel project and confirmed a live booking interaction.
+- Recorded the deployed URL, tested revision, evidence and explicit POC boundaries in the release record.
