@@ -19,14 +19,12 @@ param staticWebAppName string
 @description('Azure SQL database name.')
 param sqlDatabaseName string = 'kakariki-kai'
 
-@description('Microsoft Entra object ID of the Azure SQL administrator.')
-param sqlEntraAdministratorObjectId string
+@description('Dedicated SQL authentication administrator login used only for bootstrap and controlled schema deployment.')
+param sqlAdministratorLogin string
 
-@description('Microsoft Entra tenant ID that owns the Azure SQL administrator.')
-param sqlEntraTenantId string
-
-@description('Microsoft Entra display name for the Azure SQL administrator. Use the exact displayName returned by az ad signed-in-user show.')
-param sqlEntraAdministratorLogin string
+@secure()
+@description('Dedicated SQL authentication administrator password supplied through a protected deployment secret.')
+param sqlAdministratorPassword string
 
 @description('Kinde issuer URL, for example https://your-business.kinde.com.')
 param kindeAuthority string
@@ -91,19 +89,10 @@ resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
     type: 'SystemAssigned'
   }
   properties: {
+    administratorLogin: sqlAdministratorLogin
+    administratorLoginPassword: sqlAdministratorPassword
     publicNetworkAccess: 'Enabled'
     minimalTlsVersion: '1.2'
-  }
-}
-
-resource sqlEntraAdmin 'Microsoft.Sql/servers/administrators@2023-08-01-preview' = {
-  parent: sqlServer
-  name: 'ActiveDirectory'
-  properties: {
-    administratorType: 'ActiveDirectory'
-    login: sqlEntraAdministratorLogin
-    sid: sqlEntraAdministratorObjectId
-    tenantId: sqlEntraTenantId
   }
 }
 

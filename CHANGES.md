@@ -24,3 +24,4 @@
 - Corrected Azure Static Web Apps provisioning to use a separately configurable supported region while retaining Australia East for the API and Azure SQL database.
 - Replaced the fragile Azure SQL external-UPN deployment input with a scripted Entra display-name lookup, added the SQL server managed identity, and set the database location explicitly.
 - Added a Tearataea-style `kakariki-kai-git-deploy` service-principal setup and GitHub Actions OIDC infrastructure deployment workflow, eliminating personal Azure deployment access and client secrets.
+- Adopted a protected GitHub SQL administrator secret for Azure SQL bootstrap after Azure rejected the federated deployment identity and Entra group as the initial logical-server administrator.

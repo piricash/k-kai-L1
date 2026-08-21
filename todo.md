@@ -23,3 +23,9 @@
 - [ ] KKAI-21: Configure a dedicated Azure deployment app registration with a GitHub Actions OIDC federated credential and scoped resource-group role.
 - [ ] KKAI-22: Replace personal Azure CLI deployment instructions with a secretless GitHub Actions OIDC infrastructure deployment workflow.
 - [ ] KKAI-23: Mirror the Tearataea deployment identity pattern with the `kakariki-kai-git-deploy` service principal scoped to the Kākāriki Kai resource group.
+- [ ] KKAI-24: Trigger and verify the GitHub OIDC Azure infrastructure deployment after the user’s completed manual identity configuration.
+- [ ] KKAI-25: Assign `kakariki-kai-git-deploy` Contributor on `rg-kakariki-kai-prod-aue` and wait for Azure RBAC propagation before retrying the workflow.
+- [ ] KKAI-26: Verify the propagated deployment identity can validate the resource-group deployment and complete Azure infrastructure provisioning.
+- [ ] KKAI-27: Configure a valid Azure SQL Entra administrator independently of `kakariki-kai-git-deploy` and rerun infrastructure provisioning.
+- [ ] KKAI-28: Set the supplied Azure SQL administrator group in GitHub production variables and verify infrastructure deployment succeeds.
+- [ ] KKAI-29: Switch Azure SQL infrastructure bootstrap to a protected GitHub SQL administrator secret while retaining managed identity for runtime access.
