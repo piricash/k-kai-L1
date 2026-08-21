@@ -34,3 +34,5 @@
 - [ ] KKAI-32: Create, validate, and apply the first authoritative Azure SQL schema migration for meals, menu days, and bookings.
 - [ ] KKAI-33: Reconcile pre-existing Azure SQL tables with the initial EF Core migration without dropping operational data.
 - [ ] KKAI-34: Consolidate duplicate InitialKaiSchema migrations into one non-destructive authoritative EF Core baseline.
+- [ ] KKAI-35: Remove browser-local POC seed data and the test-role switch only after production identity and API workflows are verified, without deleting real Azure SQL data.
+- [ ] KKAI-36: Reset all user-confirmed test-only Azure SQL records after production workflow verification and before production handoff.

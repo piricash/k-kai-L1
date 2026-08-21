@@ -30,3 +30,4 @@
 - Consolidated duplicate initial migrations into the original EF Core baseline so only one non-destructive migration is discovered by deployment tooling.
 - Corrected the Azure Static Web Apps workflow order so pnpm is available before its Node dependency-cache step.
 - Updated the Azure Static Web Apps workflow to honor the repository’s pinned pnpm version and avoid version-conflict skips in GitHub Actions.
+- Added a manual dispatch trigger for Azure Static Web Apps rebuilds after protected identity configuration changes.
