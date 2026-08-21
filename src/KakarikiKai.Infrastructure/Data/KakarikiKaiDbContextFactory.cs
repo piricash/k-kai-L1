@@ -8,7 +8,11 @@ public sealed class KakarikiKaiDbContextFactory : IDesignTimeDbContextFactory<Ka
 {
     public KakarikiKaiDbContext CreateDbContext(string[] args)
     {
-        var options = new DbContextOptionsBuilder<KakarikiKaiDbContext>().UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=KakarikiKaiDesign;Trusted_Connection=True;TrustServerCertificate=True;").Options;
+        var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__KakarikiKai");
+        if (string.IsNullOrWhiteSpace(connectionString))
+            throw new InvalidOperationException("ConnectionStrings__KakarikiKai must be supplied for EF Core design-time operations.");
+
+        var options = new DbContextOptionsBuilder<KakarikiKaiDbContext>().UseSqlServer(connectionString).Options;
         return new KakarikiKaiDbContext(options, new DesignTimeTenantContext());
     }
 

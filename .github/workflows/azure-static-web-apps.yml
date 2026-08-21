@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   build_and_deploy:
@@ -34,10 +35,27 @@ jobs:
           VITE_KINDE_CLIENT_ID: ${{ secrets.VITE_KINDE_CLIENT_ID }}
           VITE_KINDE_API_AUDIENCE: ${{ secrets.VITE_KINDE_API_AUDIENCE }}
           VITE_KAKARIKI_API_URL: ${{ secrets.VITE_KAKARIKI_API_URL }}
+      - name: Authenticate to Azure with GitHub OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Retrieve short-lived Static Web Apps deployment token
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            SWA_TOKEN="$(az staticwebapp secrets list \
+              --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+              --name "${{ vars.AZURE_STATIC_WEB_APP_NAME }}" \
+              --query properties.apiKey \
+              --output tsv)"
+            echo "::add-mask::$SWA_TOKEN"
+            echo "SWA_TOKEN=$SWA_TOKEN" >> "$GITHUB_ENV"
       - name: Upload the static client
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          azure_static_web_apps_api_token: ${{ env.SWA_TOKEN }}
           action: upload
           app_location: dist/public
           api_location: ""

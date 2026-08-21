@@ -29,3 +29,6 @@
 - [ ] KKAI-27: Configure a valid Azure SQL Entra administrator independently of `kakariki-kai-git-deploy` and rerun infrastructure provisioning.
 - [ ] KKAI-28: Set the supplied Azure SQL administrator group in GitHub production variables and verify infrastructure deployment succeeds.
 - [ ] KKAI-29: Switch Azure SQL infrastructure bootstrap to a protected GitHub SQL administrator secret while retaining managed identity for runtime access.
+- [ ] KKAI-30: Deliver the exact GitHub Actions secrets and variables required for manual Azure deployment configuration.
+- [ ] KKAI-31: Run the protected OIDC infrastructure deployment after the SQL bootstrap secret is configured and verify its outputs.
+- [ ] KKAI-32: Create, validate, and apply the first authoritative Azure SQL schema migration for meals, menu days, and bookings.
