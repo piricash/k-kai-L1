@@ -32,3 +32,4 @@
 - [ ] KKAI-30: Deliver the exact GitHub Actions secrets and variables required for manual Azure deployment configuration.
 - [ ] KKAI-31: Run the protected OIDC infrastructure deployment after the SQL bootstrap secret is configured and verify its outputs.
 - [ ] KKAI-32: Create, validate, and apply the first authoritative Azure SQL schema migration for meals, menu days, and bookings.
+- [ ] KKAI-33: Reconcile pre-existing Azure SQL tables with the initial EF Core migration without dropping operational data.

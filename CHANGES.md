@@ -26,3 +26,4 @@
 - Added a Tearataea-style `kakariki-kai-git-deploy` service-principal setup and GitHub Actions OIDC infrastructure deployment workflow, eliminating personal Azure deployment access and client secrets.
 - Adopted a protected GitHub SQL administrator secret for Azure SQL bootstrap after Azure rejected the federated deployment identity and Entra group as the initial logical-server administrator.
 - Added the first authoritative EF Core schema migration and OIDC-driven GitHub workflows for controlled database migration, .NET API deployment, and Azure Static Web Apps deployment-token retrieval.
+- Updated the initial production migration to adopt pre-existing Azure SQL tables additively and preserve all existing data while establishing EF Core history.
