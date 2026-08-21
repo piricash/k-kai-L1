@@ -15,3 +15,4 @@
 - [ ] KKAI-13: Capture activation evidence and record any administrator-only action that cannot be completed through the available provider sessions.
 - [x] KKAI-14: Deliver the copy-paste Azure, Kinde, and Vercel activation guide requested for manual completion.
 - [x] KKAI-15: Replace the Vercel-specific guide and artifacts with an Azure-only Static Web Apps deployment path.
+- [x] KKAI-16: Correct the Azure Static Web Apps region independently of the Australia East API and database region.

@@ -21,3 +21,4 @@
 - Extended continuous integration to validate the .NET solution and added the ordered Azure/Kinde activation guide.
 - Published the backend-ready front-end revision and recorded the live release boundary, test evidence and rollback posture.
 - Replaced the Vercel production-hosting path with Azure Static Web Apps infrastructure, GitHub deployment workflow, static routing policy, and Azure-only activation guide.
+- Corrected Azure Static Web Apps provisioning to use a separately configurable supported region while retaining Australia East for the API and Azure SQL database.

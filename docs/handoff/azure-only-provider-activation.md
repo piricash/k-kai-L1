@@ -25,6 +25,7 @@ az ad signed-in-user show --query id -o tsv
 
 export RG=rg-kakariki-kai-prod-aue
 export LOCATION=australiaeast
+export STATIC_WEB_APP_LOCATION=eastasia
 export API_SITE_NAME=kakariki-kai-api-REPLACE_WITH_UNIQUE_NAME
 export SQL_SERVER_NAME=kkai-sql-REPLACE_WITH_UNIQUE_NAME
 export STATIC_WEB_APP_NAME=kakariki-kai-web-REPLACE_WITH_UNIQUE_NAME
@@ -41,6 +42,7 @@ az deployment group create \
   --parameters \
     environmentName=prod \
     location="$LOCATION" \
+    staticWebAppLocation="$STATIC_WEB_APP_LOCATION" \
     apiSiteName="$API_SITE_NAME" \
     sqlServerName="$SQL_SERVER_NAME" \
     staticWebAppName="$STATIC_WEB_APP_NAME" \
@@ -51,7 +53,7 @@ az deployment group create \
     kindeAudience="$KINDE_API_AUDIENCE"
 ```
 
-Save the `apiHostName`, `staticWebAppHostName`, and `apiManagedIdentityPrincipalId` outputs. Add `https://STATIC_WEB_APP_HOSTNAME` to the Kinde application callback and logout URLs.
+Keep `LOCATION=australiaeast` for the API and Azure SQL database. `STATIC_WEB_APP_LOCATION=eastasia` is intentional: Azure Static Web Apps is not currently available in Australia East, and East Asia is the closest supported region for this resource. Save the `apiHostName`, `staticWebAppHostName`, and `apiManagedIdentityPrincipalId` outputs. Add `https://STATIC_WEB_APP_HOSTNAME` to the Kinde application callback and logout URLs.
 
 ## 3. Grant SQL access and apply the schema
 

@@ -4,6 +4,9 @@ param environmentName string
 @description('Azure region for the API and Azure SQL logical server.')
 param location string = resourceGroup().location
 
+@description('Supported Azure Static Web Apps region. Keep the API and database in Australia East; use East Asia for the web client.')
+param staticWebAppLocation string = 'eastasia'
+
 @description('Globally unique API site name.')
 param apiSiteName string
 
@@ -73,7 +76,7 @@ resource apiAppSettings 'Microsoft.Web/sites/config@2024-04-01' = {
 
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
   name: staticWebAppName
-  location: location
+  location: staticWebAppLocation
   sku: {
     name: 'Free'
     tier: 'Free'
