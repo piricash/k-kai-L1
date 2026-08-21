@@ -16,6 +16,10 @@ This runbook converts the deployed front-end test workspace into the intended WM
 | Printed sheet | A server document port backed by QuestPDF, with browser print retained as a convenience view if desired. |
 | Observability | Sentry release and error monitoring plus safe structured logs; never include booking dietary detail or credentials in telemetry. |
 
+## Repository implementation delivered
+
+The repository now includes `KakarikiKai.slnx` with Domain, Application, Infrastructure, WebAPI and API-contract projects. The first slice is a tenant-filtered published-week menu query plus a KaiChef-only daily-service query. `infra/azure/main.bicep` provides the corresponding App Service and Azure SQL baseline, while `infra/azure/post-deploy.sql` grants the API’s managed identity only data read/write roles. The API refuses to start without its Kinde authority, audience and Azure SQL connection configuration.
+
 ## Required manual configuration
 
 | Provider or surface | Manual action | Completion check |

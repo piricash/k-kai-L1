@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
       - name: Enable pnpm
         run: corepack enable
       - name: Install dependencies
@@ -31,3 +35,9 @@ jobs:
         run: pnpm check
       - name: Build release bundle
         run: pnpm build
+      - name: Restore WMS solution
+        run: dotnet restore KakarikiKai.slnx
+      - name: Test WMS domain and security boundaries
+        run: dotnet test KakarikiKai.slnx --no-restore --verbosity minimal
+      - name: Build WMS API release candidate
+        run: dotnet build KakarikiKai.slnx --no-restore --configuration Release

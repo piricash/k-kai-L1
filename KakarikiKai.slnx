@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/KakarikiKai.ApiContracts/KakarikiKai.ApiContracts.csproj" />
+    <Project Path="src/KakarikiKai.Application/KakarikiKai.Application.csproj" />
+    <Project Path="src/KakarikiKai.Domain/KakarikiKai.Domain.csproj" />
+    <Project Path="src/KakarikiKai.Infrastructure/KakarikiKai.Infrastructure.csproj" />
+    <Project Path="src/KakarikiKai.WebAPI/KakarikiKai.WebAPI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/KakarikiKai.Domain.Tests/KakarikiKai.Domain.Tests.csproj" />
+    <Project Path="tests/KakarikiKai.WebApi.Tests/KakarikiKai.WebApi.Tests.csproj" />
+  </Folder>
+</Solution>

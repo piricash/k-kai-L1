@@ -19,3 +19,7 @@ The first rendered view presents the intended weekly booking workflow without an
 The first linked deployment served the generated server source rather than the Vite static output. The issue was corrected by adding an explicit Vercel static output directory and client-route rewrite, then committing `61be562`. The linked production deployment `dpl_EeSJigVUTsP3ofbMVTVn7aL1KJtP` reached the `READY` state and is the candidate for final browser smoke testing.
 
 The corrected canonical URL, `https://k-kai-l1.vercel.app`, rendered the complete booking workspace with its generated brand and food assets. Selecting Tuesday on the live site changed the row to `Picked` and updated the summary to one day, confirming the deployed browser-local interaction works.
+
+## Backend and identity slice validation
+
+The .NET 10 solution compiled and six focused tests passed: meal-price invariants, Kinde permission approval, permission denial, trusted organization-to-tenant resolution, and rejection of an authenticated request without an organization claim. A process-level API smoke test started the WebAPI with non-secret placeholder settings; `GET /health` returned `200`, while the protected `GET /api/v1/menu/next-week` returned `401` without a bearer token. Provider-backed token validation and Azure SQL data access remain blocked until the required environment configuration is supplied.

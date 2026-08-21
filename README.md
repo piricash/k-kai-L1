@@ -8,6 +8,17 @@ The first deployment is a **front-end POC**. It stores test state in the browser
 
 The live test workspace is available at [k-kai-l1.vercel.app](https://k-kai-l1.vercel.app).
 
+## Kinde-enabled client configuration
+
+The client activates Kinde PKCE sign-in only when every non-secret environment variable below is configured. It never enables browser-local refresh-token storage. The `VITE_KAKARIKI_API_URL` controls the first typed bearer-token menu request; until it is set, the browser remains transparently in POC mode.
+
+```text
+VITE_KINDE_DOMAIN=https://YOUR_KINDE_SUBDOMAIN.kinde.com
+VITE_KINDE_CLIENT_ID=YOUR_FRONTEND_APPLICATION_CLIENT_ID
+VITE_KINDE_API_AUDIENCE=YOUR_KINDE_API_AUDIENCE
+VITE_KAKARIKI_API_URL=https://YOUR_API_HOST
+```
+
 ## Local development
 
 ```bash

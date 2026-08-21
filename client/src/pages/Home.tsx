@@ -3,6 +3,7 @@
  * decisions are clear, chef actions are calm, and the POC boundary is always honest.
  */
 import { Button } from "@/components/ui/button";
+import { KindeIdentityAction } from "@/components/KindeIdentityAction";
 import {
   CalendarDays,
   Check,
@@ -323,7 +324,7 @@ export default function Home() {
             {mobileOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
           <div><p className="topbar__crumb">Kākāriki House / Kai</p><p className="topbar__date">{todayDateLabel()}</p></div>
-          <div className="topbar__status"><span className="status-dot" /> POC mode</div>
+          <KindeIdentityAction />
         </header>
 
         <div className="workspace-body">
