@@ -20,3 +20,6 @@
 - [x] KKAI-18: Provide the minimum Azure permissions, identity prerequisites, and existing-resource-group setup checklist for the user’s manual completion.
 - [ ] KKAI-19: Recover the failed Azure SQL Entra administrator configuration with a verified login value and rerun the idempotent deployment.
 - [ ] KKAI-20: Replace fragile Cloud Shell parameter pasting with a scripted deployment that uses the verified Azure SQL Entra display name.
+- [ ] KKAI-21: Configure a dedicated Azure deployment app registration with a GitHub Actions OIDC federated credential and scoped resource-group role.
+- [ ] KKAI-22: Replace personal Azure CLI deployment instructions with a secretless GitHub Actions OIDC infrastructure deployment workflow.
+- [ ] KKAI-23: Mirror the Tearataea deployment identity pattern with the `kakariki-kai-git-deploy` service principal scoped to the Kākāriki Kai resource group.
